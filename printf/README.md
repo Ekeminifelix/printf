@@ -1,52 +1,57 @@
+Printf
+Synopsis
 
-0x11. C - printf
+This is a simple implementation of printf function that formats and prints data
+Description
 
-Resources
+The _printf() function produces output according to a format which is described below. This function write its output to the stdout, the standard output stream. Returns the count of printed characters when the function is successful and -1 when the function fails.
 
-Read or watch:
+The available convertion specifiers are:
 
-Secrets of printf
-Group Projects concept page (Don’t forget to read this)
-Flowcharts concept page
+    %c: Prints a single character.
+    %s: Prints a string of characters.
+    %d: Prints integers.
+    %i: Prints integers.
+    %b: Prints the binary representation of an unsigned decimal.
+    %u: Prints unsigned integers
+    %x: Prints the hexadecial representation of an unsigned decimal in lowercase letters
+    %X:Prints the hexadecial representation of an unsigned decimal in uppercase letters
+    %r: Prints a reversed string
+    %R: Prints the Rot13 interpretation of a string
 
-man or help:
+Usage
 
-printf (3)
+    All the files are to be compiled on Ubuntu 14.04 LTS
+    Compile your code with gcc -Wall -Werror -Wextra -pedantic *.c
+    Include the "holberton.h" header file on the functions using the _printf()
 
-Requirements General
+Example
 
-Allowed editors: vi, vim, emacs
-All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89
-All your files should end with a new line
-A README.md file, at the root of the folder of the project is mandatory
-Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-You are not allowed to use global variables
-No more than 5 functions per file
-In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples
-The prototypes of ah): #include holberton.h
-You might want to look at the gcc flag -Wno-format when testing with your _printf and the standard printf. Example of test file that you could use:
-ll your functions should be included in your header file called holberton.h
-Don't forget to push your header file
-All your header files should be include guarded
-Note that we will not provide the _putchar function for this project
 
-GitHub
+#include "holberton.h"
+#include <stdio.h>
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 
-There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score. More Info Authorized functions and macros
+int main(void)
+{
+	int a;
+	int b;
+	char *str;
 
-write (man 2 write)
-malloc (man 3 malloc)
-free (man 3 free)
-va_start (man 3 va_start)
-va_end (man 3 va_end)
-va_copy (man 3 va_copy)
-va_arg (man 3 va_arg)
+	str = "school";
+	a = _printf("%r\n", "Holberton"); /*expected: notrebloh*/
+	printf("--->%d\n", a); /*expected: 10*/
 
-Compilation
+	b = _printf("%r\n", str); /*expected: loohcs*/
+	printf("%d\n", b); /*expected: 7*/
 
-Your code will be compiled this way:
+	b = _printf("%r\n", str); /*expected: loohcs*/
+	printf("%d\n", b); /*expected: 7*/
+	return (0);
+}
 
-$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 
-As a consequence, be careful not to push any c file containing a main function in the root directory of your project (you could have a test folder containing all your tests files including main functions)
-Our main files will include your main header file (holberton.
